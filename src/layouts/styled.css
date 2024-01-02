@@ -1,0 +1,13 @@
+.layout {
+    display: block;
+}
+
+.header__actions {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.layout__content {
+    padding: 0 24px;
+}
