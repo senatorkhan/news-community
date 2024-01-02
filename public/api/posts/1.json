@@ -8,8 +8,9 @@
             "poster": "https://cdn.iportal.ru/news/2015/99/preview/c667d26be0ba4829c801e7863b579f4000068f8e_1332_888_c.jpg.webp-portal",
             "createdAt": "2023-12-20T12:33:00.000Z",
             "likes": 10,
-            "comments": 44,
-            "bookmarks": 0
+            "comments": 49,
+            "bookmarks": 0,
+            "visits": 1
         },
         "1": {
             "id": "1",
@@ -20,7 +21,8 @@
             "createdAt": "2023-12-30T18:11:00.000Z",
             "likes": 1,
             "comments": 0,
-            "bookmarks": 2
+            "bookmarks": 2,
+            "visits": 993
         }
     },
     "authors": {

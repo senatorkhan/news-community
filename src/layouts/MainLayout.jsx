@@ -1,22 +1,19 @@
-import { useState } from 'react'
 import './styled.css'
-import { Header } from '../components'
+import { Outlet } from 'react-router-dom'
+import { Header, UserPanel, NewsFilter } from '../components'
 
-export function MainLayout({ children }) {
+export function MainLayout() {
+    return (
+        <main className="layout">
+            <Header className="layout__header">
+                <UserPanel />
+            </Header>
 
-  return (
-    <main className="layout">
-        <Header className="layout__header">
+            <NewsFilter className="layout__menu" />
 
-        </Header>
-
-        <menu className="layout__menu">
-            
-        </menu>
-
-        <section className="layout__content">
-            {children}
-        </section>
-    </main>
-  )
+            <section className="layout__content">
+                <Outlet />
+            </section>
+        </main>
+    )
 }

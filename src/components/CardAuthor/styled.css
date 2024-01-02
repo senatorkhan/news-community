@@ -1,0 +1,55 @@
+.card-author {
+    --avatar-size: 44px;
+    --author-size: 22px;
+
+    display: grid;
+    grid-template-rows: [author] var(--author-size) [date] 14px [meta] auto;
+    grid-template-columns: [avatar] var(--avatar-size) [content] auto;
+    column-gap: 12px;
+}
+
+.card-author__avatar {
+    grid-row: author / meta;
+    grid-column: avatar;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.card-author__author {
+    grid-row: author;
+    grid-column: content;
+    font-size: 18px;
+}
+
+.card-author__published {
+    grid-row: date;
+    grid-column: content;
+    font-size: 12px;
+}
+
+.card-author__meta {
+    grid-row: meta;
+    grid-column: content;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 767px) {
+    .card-author {
+        --avatar-size: 30px;
+        --author-size: 18px;
+    }
+
+    .card-author__author {
+        font-size: 14px;
+    }
+
+    .card-author__published {
+        font-size: 10px;
+    }
+
+    .card-author__meta {
+        font-size: 10px;
+    }
+}

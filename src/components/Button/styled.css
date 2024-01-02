@@ -1,0 +1,25 @@
+.button {
+    cursor: pointer;
+    border-radius: 6px;
+    border-width: 0;
+    padding: 16px 24px;
+    background-color: var(--bg-color);
+    transition: background-color linear 0.2s;
+}
+
+.button:hover {
+    background-color: color-mix(in srgb, #000 25%, var(--bg-color));
+}
+
+.button--primary {
+    --bg-color: #1a8917;
+    color: #fff;
+}
+
+.button--block {
+    display: block;
+}
+
+.button--inline {
+    display: inline-block;
+}

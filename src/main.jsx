@@ -1,24 +1,40 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import { Provider } from 'react-redux';
-import store from './store'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'normalize.css'
+import { userDataLoader, postsDataLoader, postDataLoader } from './loaders'
+import { HomePage, PostPage } from './pages'
+import { MainLayout } from './layouts'
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-]);
+    {
+        id: 'root',
+        loader: userDataLoader,
+        Component: MainLayout,
+        children: [
+            // News sorting
+            ...['', 'popular', 'upvoted', 'discussed', 'recent', 'most-visited', 'bookmarks'].map(
+                (path) => ({
+                    id: `posts:${path || 'default'}`,
+                    path: `/${path}`,
+                    loader: () => postsDataLoader(path || 'recent'),
+                    Component: HomePage,
+                })
+            ),
+
+            // Post
+            {
+                id: 'post',
+                path: '/post/:postId',
+                loader: ({ params }) => postDataLoader(params.postId),
+                Component: PostPage,
+            },
+        ],
+    },
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>
 )

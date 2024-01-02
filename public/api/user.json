@@ -1,11 +1,8 @@
 {
     "id": "749",
     "name": "Алексей Житковский",
-    "bookmarks": [
-        { "id": "1" },
-        { "id": "4" },
-        { "id": "8" }
-    ],
+    "avatar": "https://randomuser.me/api/portraits/men/63.jpg",
+    "bookmarks": [{ "id": "1" }, { "id": "4" }, { "id": "8" }],
     "tasks": [
         {
             "id": "8b3399c3-d4cf-4b62-aef7-1a2aabe48c5b",

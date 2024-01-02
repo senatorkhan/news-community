@@ -1,0 +1,44 @@
+.card {
+    --padding: 26px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: var(--padding);
+    overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+    .card {
+        --padding: 16px;
+    }
+}
+
+.card__poster {
+    width: calc(100% + calc(2 * var(--padding)));
+    max-height: 420px;
+    object-fit: cover;
+    margin-top: calc(-1 * var(--padding));
+    margin-left: calc(-1 * var(--padding));
+    margin-bottom: 14px;
+}
+
+.card__content h1 {
+    font-size: 30px;
+}
+
+.card__content img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.card__actions > * {
+    margin-right: 14px;
+}
+
+@media screen and (max-width: 767px) {
+    .card__actions > * {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 14px;
+    }
+}

@@ -1,18 +1,15 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './styled.css'
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo.svg'
 
 export function Header({ className, children }) {
+    return (
+        <header className={`header ${className}`}>
+            <Link to="/" className="header__logo">
+                <img src={logo} alt="Тюмень Онлайн" />
+            </Link>
 
-  return (
-    <header className={`header ${className}`}>
-        <a href="" className="header__logo">
-          <img src={logo} alt="Тюмень Онлайн" />
-        </a>
-
-        <menu className="header__actions">
-          {children}
-        </menu>
-    </header>
-  )
+            <menu className="header__actions">{children}</menu>
+        </header>
+    )
 }
