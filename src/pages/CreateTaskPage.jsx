@@ -53,7 +53,12 @@ export function CreateTaskPage() {
     return (
         <form onSubmit={onSubmit} ref={form}>
             <Input title="Title" placeholder="Task name" name="title" />
-            <Input title="Description" name="description" placeholder="Task Description (markdown)" type="textarea" />
+            <Input
+                title="Description"
+                name="description"
+                placeholder="Task Description (markdown)"
+                type="textarea"
+            />
             <Input title="Date" name="date" type="datetime-local" />
             <Button type="submit" block>
                 Create task
