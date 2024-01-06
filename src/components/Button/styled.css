@@ -15,9 +15,14 @@
     --bg-color: #1a8917;
     color: #fff;
 }
+.button--danger {
+    --bg-color: #89173d;
+    color: #fff;
+}
 
 .button--block {
     display: block;
+    width: 100%;
 }
 
 .button--inline {

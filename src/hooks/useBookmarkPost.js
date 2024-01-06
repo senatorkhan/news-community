@@ -1,8 +1,8 @@
-import { userStore } from "../store";
+import { userStore } from '../store'
 
 export function useBookmarkPost(postId) {
-    const hasPost = userStore.hasBookmark(postId);
-    const togglePost = () => userStore.toggleBookmark(postId);
+    const hasPost = userStore.hasBookmark(postId)
+    const togglePost = () => userStore.toggleBookmark(postId)
 
-    return [hasPost, togglePost];
+    return [hasPost, togglePost]
 }

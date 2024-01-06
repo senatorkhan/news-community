@@ -1,7 +1,9 @@
 import { postsStore, userStore } from '../store'
 
 export async function postsDataLoader(sort) {
-    await postsStore.fetch()
+    if (!postsStore.loaded) {
+        await postsStore.fetch()
+    }
 
     switch (sort) {
         case 'discussed':

@@ -1,5 +1,5 @@
-import { postsStore } from "../store";
+import { postsStore } from '../store'
 
 export function useAuthor(authorId) {
-    return postsStore.authors[authorId];
+    return postsStore.authors[authorId]
 }

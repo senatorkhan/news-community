@@ -1,6 +1,7 @@
 import { makeObservable, observable, computed, flow } from 'mobx'
 
 export class PostsStore {
+    loaded = false
     items
     authors
 
@@ -48,6 +49,10 @@ export class PostsStore {
         return [...this.list].sort((a, b) => b.visits - a.visits)
     }
 
+    findPost(id) {
+        return this.items[id]
+    }
+
     *fetch() {
         let nextPage = 0
 
@@ -63,5 +68,7 @@ export class PostsStore {
 
             nextPage = data.nextPage
         }
+
+        this.loaded = true
     }
 }

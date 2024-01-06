@@ -2,8 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'normalize.css'
-import { userDataLoader, postsDataLoader, postDataLoader } from './loaders'
-import { HomePage, PostPage } from './pages'
+import {
+    userDataLoader,
+    postsDataLoader,
+    postDataLoader,
+    taskDataLoader,
+} from './loaders'
+import { CreateTaskPage, HomePage, PostPage, TasksPage } from './pages'
 import { MainLayout } from './layouts'
 
 const router = createBrowserRouter([
@@ -13,14 +18,20 @@ const router = createBrowserRouter([
         Component: MainLayout,
         children: [
             // News sorting
-            ...['', 'popular', 'upvoted', 'discussed', 'recent', 'most-visited', 'bookmarks'].map(
-                (path) => ({
-                    id: `posts:${path || 'default'}`,
-                    path: `/${path}`,
-                    loader: () => postsDataLoader(path || 'recent'),
-                    Component: HomePage,
-                })
-            ),
+            ...[
+                '',
+                'popular',
+                'upvoted',
+                'discussed',
+                'recent',
+                'most-visited',
+                'bookmarks',
+            ].map((path) => ({
+                id: `posts:${path || 'default'}`,
+                path: `/${path}`,
+                loader: () => postsDataLoader(path || 'recent'),
+                Component: HomePage,
+            })),
 
             // Post
             {
@@ -28,6 +39,21 @@ const router = createBrowserRouter([
                 path: '/post/:postId',
                 loader: ({ params }) => postDataLoader(params.postId),
                 Component: PostPage,
+            },
+
+            // Tasks
+            {
+                id: 'tasks',
+                path: '/tasks',
+                loader: taskDataLoader,
+                Component: TasksPage,
+            },
+
+            // Create tasks
+            {
+                id: 'tasks.create',
+                path: '/tasks/create',
+                Component: CreateTaskPage,
             },
         ],
     },
